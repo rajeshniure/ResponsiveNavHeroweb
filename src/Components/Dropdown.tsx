@@ -45,7 +45,8 @@ const Dropdown = ({ label, items }: DropdownProps) => {
         />
       </button>
       {open && (
-        <ul className="absolute top-full mt-2 bg-white shadow rounded px-4 py-2 space-y-1 z-50">
+        <ul className="mt-2 bg-white rounded px-4 py-2 space-y-1 md:absolute md:top-full md:shadow md:z-50">
+
           {items.map((item, index) => (
             <li
               key={index}

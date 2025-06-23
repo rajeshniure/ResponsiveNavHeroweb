@@ -128,7 +128,7 @@ const Navbar = () => {
         </ul>
 
         <div className="flex flex-col items-center mt-4 gap-4">
-          <button className="text-gray-700 hover:text-gray-900 cursor-pointer">
+          <button className="text-gray-700 hover:text-gray-900 cursor-pointer hover:font-bold">
             Login
           </button>
           <button className="border-2 rounded-xl px-11 py-1 text-gray-700 hover:bg-black hover:text-white cursor-pointer transition-colors duration-200">
