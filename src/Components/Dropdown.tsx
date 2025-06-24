@@ -1,5 +1,7 @@
-import { useState,useEffect,useRef } from "react";
+import { useState,useRef } from "react";
 import { ChevronDown } from "lucide-react";
+import useOutsideClick from "./hooks/useOutsideClick";
+
 
 
 type DropdownItem = {
@@ -15,23 +17,11 @@ type DropdownProps = {
 
 const Dropdown = ({ label, items }: DropdownProps) => {
   const [open, setOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown on outside click
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setOpen(false);
-      }
-    };
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
+  useOutsideClick(dropdownRef, () => setOpen(false));
+  
   return (
     <div ref={dropdownRef} className="relative ">
       <button
